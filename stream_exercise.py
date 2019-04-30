@@ -45,6 +45,7 @@ class StreamProcessor(object):
     def __init__(self, stream):
         self._stream = stream
 
+
     def process(self):
         """
         TODO: Implement the `process` method, as described above.
@@ -55,7 +56,18 @@ class StreamProcessor(object):
         count = 0  # How many two-digit numbers the `process` method has added
                    # together.
         total = 0  # The running total of sums.
-
+        
+        for i in range(10):
+            if total < 200:
+                num = self._stream.read(2)
+                if len(num) == 2:
+                    total += int(num)
+                else:
+                    break
+            else:
+                break
+            count += 1
+            
         # TODO: WRITE CODE HERE:
 
         # Just some example syntax, you can read two digits from the head of the
